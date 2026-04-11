@@ -1,0 +1,184 @@
+import Link from 'next/link';
+import React from 'react';
+
+const blogs = [
+  {
+    id: 1,
+    title: "Getting Started with React",
+    slug: "getting-started-with-react",
+    author: "John Doe",
+    category: "Web Development",
+    tags: ["react", "javascript", "frontend"],
+    publishedAt: "2026-01-10",
+    readTime: 5,
+    views: 1200,
+    likes: 150,
+    featuredImage: "https://picsum.photos/seed/react1/600/400",
+    excerpt: "Learn the basics of React and how to build your first app.",
+    content: "This is a beginner-friendly guide to React...",
+  },
+  {
+    id: 2,
+    title: "Understanding JavaScript Closures",
+    slug: "understanding-javascript-closures",
+    author: "Jane Smith",
+    category: "JavaScript",
+    tags: ["javascript", "closures"],
+    publishedAt: "2026-01-15",
+    readTime: 7,
+    views: 980,
+    likes: 120,
+    featuredImage: "https://picsum.photos/seed/js2/600/400",
+    excerpt: "Closures explained in simple terms with examples.",
+    content: "Closures are a fundamental concept in JavaScript...",
+  },
+  {
+    id: 3,
+    title: "CSS Grid vs Flexbox",
+    slug: "css-grid-vs-flexbox",
+    author: "Alex Johnson",
+    category: "CSS",
+    tags: ["css", "layout", "flexbox", "grid"],
+    publishedAt: "2026-02-01",
+    readTime: 6,
+    views: 1500,
+    likes: 210,
+    featuredImage: "https://picsum.photos/seed/css3/600/400",
+    excerpt: "Which layout system should you use?",
+    content: "CSS Grid and Flexbox are powerful tools...",
+  },
+  {
+    id: 4,
+    title: "Building REST APIs with Node.js",
+    slug: "building-rest-apis-nodejs",
+    author: "Michael Lee",
+    category: "Backend",
+    tags: ["nodejs", "api", "express"],
+    publishedAt: "2026-02-10",
+    readTime: 8,
+    views: 1750,
+    likes: 260,
+    featuredImage: "https://picsum.photos/seed/node4/600/400",
+    excerpt: "Step-by-step guide to creating REST APIs.",
+    content: "Node.js is widely used for backend development...",
+  },
+  {
+    id: 5,
+    title: "Introduction to TypeScript",
+    slug: "introduction-to-typescript",
+    author: "Emily Davis",
+    category: "Programming",
+    tags: ["typescript", "javascript"],
+    publishedAt: "2026-02-18",
+    readTime: 5,
+    views: 1100,
+    likes: 140,
+    featuredImage: "https://picsum.photos/seed/ts5/600/400",
+    excerpt: "Why TypeScript is worth learning.",
+    content: "TypeScript adds static typing to JavaScript...",
+  },
+  {
+    id: 6,
+    title: "Tailwind CSS Tips and Tricks",
+    slug: "tailwind-css-tips",
+    author: "Chris Brown",
+    category: "CSS",
+    tags: ["tailwind", "css"],
+    publishedAt: "2026-03-01",
+    readTime: 4,
+    views: 900,
+    likes: 100,
+    featuredImage: "https://picsum.photos/seed/tailwind6/600/400",
+    excerpt: "Improve your workflow with Tailwind CSS.",
+    content: "Tailwind CSS is a utility-first framework...",
+  },
+  {
+    id: 7,
+    title: "React Hooks Explained",
+    slug: "react-hooks-explained",
+    author: "Sophia Wilson",
+    category: "React",
+    tags: ["react", "hooks"],
+    publishedAt: "2026-03-05",
+    readTime: 6,
+    views: 1300,
+    likes: 180,
+    featuredImage: "https://picsum.photos/seed/hooks7/600/400",
+    excerpt: "Understanding useState, useEffect, and more.",
+    content: "Hooks changed how we write React components...",
+  },
+  {
+    id: 8,
+    title: "Deploying Apps with Vercel",
+    slug: "deploying-apps-vercel",
+    author: "Daniel Martinez",
+    category: "DevOps",
+    tags: ["vercel", "deployment"],
+    publishedAt: "2026-03-12",
+    readTime: 5,
+    views: 800,
+    likes: 90,
+    featuredImage: "https://picsum.photos/seed/vercel8/600/400",
+    excerpt: "Quick deployment guide using Vercel.",
+    content: "Vercel makes deployment super easy...",
+  },
+  {
+    id: 9,
+    title: "Understanding Async/Await",
+    slug: "understanding-async-await",
+    author: "Olivia Taylor",
+    category: "JavaScript",
+    tags: ["javascript", "async"],
+    publishedAt: "2026-03-20",
+    readTime: 6,
+    views: 1400,
+    likes: 200,
+    featuredImage: "https://picsum.photos/seed/async9/600/400",
+    excerpt: "Master asynchronous JavaScript.",
+    content: "Async/await simplifies working with promises...",
+  },
+  {
+    id: 10,
+    title: "Git and GitHub Basics",
+    slug: "git-github-basics",
+    author: "William Anderson",
+    category: "Tools",
+    tags: ["git", "github"],
+    publishedAt: "2026-03-28",
+    readTime: 4,
+    views: 1600,
+    likes: 220,
+    featuredImage: "https://picsum.photos/seed/git10/600/400",
+    excerpt: "Version control made simple.",
+    content: "Git helps developers track changes...",
+  },
+];
+
+const BlogsPage = () => {
+    return (
+      <div className="p-10">
+        <h2 className="text-3xl text-center font-bold">
+          All Blogs will Show here
+        </h2>
+        <div className="grid grid-cols-2 gap-5 p-10">
+          {blogs.map((blog, index) => (
+            <div
+              key={index}
+              className="p-10 border border-amber-600 rounded-lg shadow-md hover:shadow-lg"
+            >
+              <h3 className="text-2xl font-semibold text-gray-700 text-center">
+                {blog.title}
+              </h3>
+              <div className="flex justify-center items-center  mt-5">
+                <Link href={`/blogs/${blog.id}`}>
+                  <button className="btn btn-secondary">See Details</button>
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+};
+
+export default BlogsPage;
